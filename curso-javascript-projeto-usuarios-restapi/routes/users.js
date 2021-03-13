@@ -2,9 +2,9 @@
 const { check, validationResult } = require('express-validator');
 
 let checkFields = [
-        check('name').not().isEmpty(),
-        check('email').not().isEmpty().isEmail(),
-        check('password').not().isEmpty()
+        check('_name').not().isEmpty(),
+        check('_email').not().isEmpty().isEmail(),
+        check('_password').not().isEmpty()
 ];
             
 
