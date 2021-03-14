@@ -13,7 +13,47 @@ router.get('/', function(req, res, next) {
   client.get('/users', function(err, requests, responses, obj) {
     assert.ifError(err);
   
-    res.end(JSON.stringify(obj, null, 2));
+    res.json(obj);
+
+  });
+});
+
+/* GET users/ id listing. */
+router.get('/:id', function(req, res, next) {
+  client.get(`/users/${req.params.id}`, function(err, requests, responses, obj) {
+    assert.ifError(err);
+  
+    res.json(obj);
+
+  });
+});
+
+/* PUT users listing. */
+router.put('/:id', function(req, res, next) {
+  client.get(`/users/${req.params.id}`, req.body,function(err, requests, responses, obj) {
+    assert.ifError(err);
+  
+    res.json(obj);
+
+  });
+});
+
+/* DELETE users listing. */
+router.delete('/:id', function(req, res, next) {
+  client.del(`/users/${req.params.id}`, function(err, requests, responses, obj) {
+    assert.ifError(err);
+  
+    res.json(obj);
+
+  });
+});
+
+  /* POST users listing. */
+router.post('/', function(req, res, next) {
+  client.post(`/users`, req.body,function(err, requests, responses, obj) {
+    assert.ifError(err);
+  
+    res.json(obj);
 
   });
 });
