@@ -10,7 +10,7 @@ var client = restify.createJsonClient({
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  client.get('/users', function(err, requests, responses, obj) {
+  client.get('/users', function(err, request, response, obj) {
     assert.ifError(err);
   
     res.json(obj);
@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
 
 /* GET users/ id listing. */
 router.get('/:id', function(req, res, next) {
-  client.get(`/users/${req.params.id}`, function(err, requests, responses, obj) {
+  client.get(`/users/${req.params.id}`, function(err, request, response, obj) {
     assert.ifError(err);
   
     res.json(obj);
@@ -30,7 +30,7 @@ router.get('/:id', function(req, res, next) {
 
 /* PUT users listing. */
 router.put('/:id', function(req, res, next) {
-  client.get(`/users/${req.params.id}`, req.body,function(err, requests, responses, obj) {
+  client.put(`/users/${req.params.id}`, req.body,function(err, request, response, obj) {
     assert.ifError(err);
   
     res.json(obj);
@@ -40,7 +40,7 @@ router.put('/:id', function(req, res, next) {
 
 /* DELETE users listing. */
 router.delete('/:id', function(req, res, next) {
-  client.del(`/users/${req.params.id}`, function(err, requests, responses, obj) {
+  client.del(`/users/${req.params.id}`, function(err, request, response, obj) {
     assert.ifError(err);
   
     res.json(obj);
@@ -50,7 +50,7 @@ router.delete('/:id', function(req, res, next) {
 
   /* POST users listing. */
 router.post('/', function(req, res, next) {
-  client.post(`/users`, req.body,function(err, requests, responses, obj) {
+  client.post(`/users`, req.body,function(err, request, response, obj) {
     assert.ifError(err);
   
     res.json(obj);

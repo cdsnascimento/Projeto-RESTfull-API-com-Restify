@@ -1,26 +1,26 @@
 class HttpRequest{
 
-    static get(route, paramns = {}){
+    static get(route, params = {}){
 
-        return HttpRequest.request('GET', route, paramns);
-
-    }
-
-    static delete(route, paramns = {}){
-
-        return HttpRequest.request('DELETE', route, paramns);
+        return HttpRequest.request('GET', route, params);
 
     }
 
-    static put(route, paramns = {}){
+    static delete(route, params = {}){
 
-        return HttpRequest.request('PUT', route, paramns);
+        return HttpRequest.request('DELETE', route, params);
 
     }
 
-    static post(route, paramns = {}){
+    static put(route, params = {}){
 
-        return HttpRequest.request('POST', route, paramns);
+        return HttpRequest.request('PUT', route, params);
+
+    }
+
+    static post(route, params = {}){
+
+        return HttpRequest.request('POST', route, params);
 
     }
 
@@ -53,7 +53,8 @@ class HttpRequest{
     
             };
     
-            ajax.send();
+            ajax.setRequestHeader('Content-Type', 'application/json');
+            ajax.send(JSON.stringify(params));
 
         });
         
