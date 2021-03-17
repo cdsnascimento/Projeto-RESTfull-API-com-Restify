@@ -9,10 +9,11 @@ const app = express();
 app.use(express.json());
 
 app.use(bodyParser.urlencoded({ 
-    extended: false 
+    extended: false,
+    limit:'50mb' 
 }));
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit:'50mb'}));
 
 consign().include('routes').include('utils').into(app);
 
