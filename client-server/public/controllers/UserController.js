@@ -193,8 +193,6 @@ class UserController{
 
     selectAll(){
 
-        
-        
         User.getUsersStorage().then( data => {
 
             data.users.forEach(dataUser => {
